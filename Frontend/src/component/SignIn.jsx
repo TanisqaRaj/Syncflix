@@ -12,12 +12,7 @@ const SignIn = () => {
           {/* Header */}
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-2sm font-semibold">Sign in</h2>
-            <p className="text-sm">
-              Don’t have an account?{" "}
-              <a href="#" className="font-semibold text-black hover:underline">
-                Join now
-              </a>
-            </p>
+           
           </div>
 
           {/* Form */}
@@ -86,6 +81,15 @@ const SignIn = () => {
             />
             Sign in with Google
           </button>
+          <div>
+             <p className="text-sm">
+              Don’t have an account?{" "}
+              <a href="#" className="font-semibold text-black hover:underline">
+                Join now
+              </a>
+            </p>
+          </div>
+          
         </div>
       </div>
     </div>
