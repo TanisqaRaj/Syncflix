@@ -56,37 +56,23 @@ const Landing = () => {
                 </a>
               </div>
 
-              <div className="flex items-center justify-end space-x-5">
-                <button
-                  type="button"
-                  className="p-2 -m-2 text-white transition-all duration-200 lg:hidden hover:text-gray-200"
-                >
-                  <svg
-                    className="w-6 h-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                </button>
+                            <div className="flex items-center justify-end space-x-5">
+                                <button type="button" className="p-2 -m-2 text-white transition-all duration-200 lg:hidden hover:text-gray-200">
+                                    <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                    </svg>
+                                </button>
+                                    <a href="/signin" title="" className="text-base font-medium text-gray-400 transition-all duration-200 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white hover:text-white">
+                                <button type="button" className="relative p-2 -m-2 text-white transition-all duration-200 hover:text-gray-200">
 
-                <button
-                  type="button"
-                  className="relative p-2 -m-2 text-white transition-all duration-200 hover:text-gray-200"
-                >
-                  <CiLogin className="w-6 h-6" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </header>
+                                    <CiLogin className="w-6 h-6" />
+
+                                </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </header>
 
         <div className="relative py-12 bg-gray-900 sm:py-16 lg:py-20 xl:pt-32 xl:pb-44">
           <div className="absolute inset-0 hidden lg:block">
