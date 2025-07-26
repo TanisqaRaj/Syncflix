@@ -3,6 +3,7 @@ import { CiLogin } from "react-icons/ci";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import main from "../assets/logo.png";
 
 const Landing = () => {
   return (
@@ -12,9 +13,9 @@ const Landing = () => {
           <div className="px-4 mx-auto sm:px-6 lg:px-8 xl:px-12">
             <div className="flex items-center justify-between h-16 lg:h-[72px]">
               <div className="flex items-center flex-shrink-0">
-                <a href="#" title="" className="inline-flex">
-                  <span className="sr-only"> Sync-Flex </span>
-                  <img className="w-auto h-10" src="#" alt="Sync-Flex" />
+                <a href="/" title="" className="inline-flex">
+                  {/* <span className="mb-2"> Sync-Flex </span> */}
+                  <img className="w-auto h-28" src={main} alt="Sync-Flex" />
                 </a>
               </div>
 
@@ -29,7 +30,7 @@ const Landing = () => {
                 </a>
 
                 <a
-                  href="#"
+                  href="/youtube"
                   title=""
                   className="text-base font-medium text-gray-400 transition-all duration-200 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white hover:text-white"
                 >

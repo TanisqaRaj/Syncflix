@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@zegocloud/zego-uikit-prebuilt": "^2.15.0",
+    "axios": "^1.11.0",
     "dom": "^0.0.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -19,6 +20,7 @@
     "react-router": "^7.7.0",
     "react-router-dom": "^7.6.1",
     "react-slick": "^0.30.3",
+    "react-youtube": "^10.1.0",
     "slick-carousel": "^1.8.1",
     "socket.io": "^4.8.1"
   },

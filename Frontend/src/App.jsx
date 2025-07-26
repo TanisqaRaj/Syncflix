@@ -2,6 +2,7 @@ import React from 'react'
 import  { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Landing from './component/landing'
 import SignIn from './component/SignIn'
+import YouTubeSearch from './component/YouTubeSearch'
 
 function App  ()  {
   const router = createBrowserRouter([
@@ -13,6 +14,11 @@ function App  ()  {
     {
       path:'/signin',
       element: <SignIn />
+    },
+
+    {
+      path:'/youtube',
+      element: <YouTubeSearch />
     }
 
 
