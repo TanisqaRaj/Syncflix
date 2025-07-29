@@ -9,7 +9,7 @@ const YouTubeSearch = () => {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/search", {
+      const response = await axios.get("http://localhost:8080/api/search", {
         params: { q: query },
       });
       setVideos(response.data.items);

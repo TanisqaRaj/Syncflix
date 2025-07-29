@@ -1,5 +1,4 @@
-const admin = require('../firebase');
-
+import admin from '../firebase';
 const verifyFirebaseToken = async (req, res, next) => {
   const token = req.headers.authorization?.split('Bearer ')[1];
   if (!token) return res.status(401).json({ error: 'Token missing' });

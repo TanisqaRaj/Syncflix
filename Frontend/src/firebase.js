@@ -1,7 +1,6 @@
-
 import { initializeApp } from "firebase/app";
 import {getAuth, GoogleAuthProvider } from 'firebase/auth';
-// import { getAnalytics } from "firebase/analytics";
+
 const firebaseConfig = {
   apiKey: "AIzaSyBESb7CZUyrT3e3bqhSJnijFDXuKVTTqcY",
   authDomain: "syncflix-d8250.firebaseapp.com",
@@ -16,4 +15,3 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
-// const analytics = getAnalytics(app);
