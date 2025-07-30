@@ -4,16 +4,23 @@ import Landing from "./component/landing";
 import SignIn from "./component/SignIn";
 import YouTubeSearch from "./component/YouTubeSearch";
 import SignUp from "./component/SignUp";
+import NavBar from "./component/Navbar";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Landing />,
+      element:[
+        <NavBar />,
+        <Landing/>,
+      ]
     },
     {
       path: "/signin",
-      element: <SignIn />,
+      element:[
+        <NavBar/>,
+<SignIn />,
+      ] 
     },
     {
       path: "/signup",
