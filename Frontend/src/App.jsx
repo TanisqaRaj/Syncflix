@@ -1,38 +1,50 @@
-import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Landing from "./component/landing";
 import SignIn from "./component/SignIn";
 import YouTubeSearch from "./component/YouTubeSearch";
 import SignUp from "./component/SignUp";
 import NavBar from "./component/Navbar";
+import Lobby from "./component/room/Lobby";
+import Room from "./component/room/Room";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element:[
-        <NavBar />,
-        <Landing/>,
-      ]
+      element: (
+        <div>
+          <NavBar />
+          <Landing />
+        </div>
+      ),
     },
     {
       path: "/signin",
-      element:[
-        <NavBar/>,
-<SignIn />,
-      ] 
+      element: (
+        <div>
+          <NavBar />
+          <SignIn />
+        </div>
+      ),
     },
     {
       path: "/signup",
-      element: <SignUp />,
+      element: <SignUp />
     },
     {
       path: "/youtube",
-      element: <YouTubeSearch />,
+      element: <YouTubeSearch />
+    },
+    {
+      path: "/lobby",
+      element: <Lobby />
+    },
+    {
+      path: "/room",
+      element: <Room />
     },
   ]);
 
-  // You should return something, for example:
   return <RouterProvider router={router} />;
 }
 
