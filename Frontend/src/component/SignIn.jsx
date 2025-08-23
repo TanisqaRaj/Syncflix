@@ -2,17 +2,30 @@ import { useState } from "react";
 import axios from "axios";
 import { auth, provider } from "../firebase";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { login } from "../redux/authSlice";
+import { useDispatch } from "react-redux";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const loginWithFirebase = async (user) => {
     const idToken = await user.getIdToken();
     const res = await axios.post("http://localhost:8080/auth/login", {
       idToken,
     });
+    dispatch(
+      login({
+        email: user.email,
+        uid: user.uid,
+        token: idToken,
+      })
+    );
     alert(res.data.message);
+    navigate("/lobby");
   };
 
   const handleLogin = async (e) => {
@@ -36,15 +49,28 @@ const SignIn = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="relative">
+      <div className="relative w-full max-w-md">
         {/* Radiant Glow Background */}
         <div className="absolute -inset-1 rounded-xl radiant-shadow blur-lg opacity-60 z-0"></div>
 
         {/* Login Card */}
         <div className="relative bg-white p-8 rounded-xl shadow-xl w-full max-w-md border border-gray-100 z-10">
           {/* Header */}
+          <div className="flex justify-center items-center mb-6">
+            <h2 className="text-2xl text-black font-semibold">Sign in</h2>
+          </div>
+
+          {/*Signup text */}
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2sm font-semibold">Sign in</h2>
+            <p className="text-sm text-gray-600">
+              Don't have an account?{" "}
+              <a
+                href="/signup"
+                className="font-semibold text-black hover:underline"
+              >
+                SignUp
+              </a>
+            </p>
           </div>
 
           {/* Form */}
@@ -82,14 +108,6 @@ const SignIn = () => {
                 placeholder="Password (min. 8 character)"
                 className="w-full px-4 py-3 text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
               />
-            </div>
-
-            {/* Remember Me */}
-            <div className="flex items-center">
-              <input type="checkbox" id="remember" className="mr-2" />
-              <label htmlFor="remember" className="text-sm">
-                Remember me
-              </label>
             </div>
 
             {/* Sign in button */}

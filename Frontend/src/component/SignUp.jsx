@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { auth, provider } from "../firebase";
+import { useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   updateProfile,
@@ -11,6 +12,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const navigate = useNavigate();
 
   // Api call for signup
   const handleSubmit = async (e) => {
@@ -30,8 +32,9 @@ const SignUp = () => {
         password,
         username,
       });
-
       alert("User registered successfully!");
+      navigate("/signin");
+
     } catch (err) {
       alert(err.message);
     }
@@ -57,7 +60,7 @@ const SignUp = () => {
             <h2 className="text-2xl font-semibold text-black">Sign up</h2>
             <p className="text-sm text-gray-600">
               Already joined?{" "}
-              <a href="#" className="font-semibold text-black hover:underline">
+              <a href="/signin" className="font-semibold text-black hover:underline">
                 Login now
               </a>
             </p>
@@ -74,7 +77,7 @@ const SignUp = () => {
                 placeholder="Username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full px-4 py-2 border rounded-md outline-none focus:ring-2 focus:ring-black"
+                className="w-full px-4 py-2 border text-black rounded-md outline-none focus:ring-2 focus:ring-black"
               />
             </div>
             {/* email */}
@@ -87,7 +90,7 @@ const SignUp = () => {
                 placeholder="Email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2 border rounded-md outline-none focus:ring-2 focus:ring-black"
+                className="w-full px-4 py-2 text-black border rounded-md outline-none focus:ring-2 focus:ring-black"
               />
             </div>
             {/* password */}
@@ -100,19 +103,8 @@ const SignUp = () => {
                 placeholder="Password (min. 8 character)"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-2 border rounded-md outline-none focus:ring-2 focus:ring-black"
+                className="w-full px-4 py-2 text-black border rounded-md outline-none focus:ring-2 focus:ring-black"
               />
-            </div>
-
-            {/* termsAndCondition */}
-            <div className="flex items-center">
-              <input id="terms" type="checkbox" className="mr-2" />
-              <label htmlFor="terms" className="text-sm text-gray-700">
-                I agree with{" "}
-                <span className="font-semibold text-black">
-                  Terms & Conditions
-                </span>
-              </label>
             </div>
 
             {/* Submit button */}

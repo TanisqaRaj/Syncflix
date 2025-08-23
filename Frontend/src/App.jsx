@@ -6,6 +6,8 @@ import SignUp from "./component/SignUp";
 import NavBar from "./component/Navbar";
 import Lobby from "./component/room/Lobby";
 import Room from "./component/room/Room";
+import ProtectedRoute from "./component/ProtectedRoute";
+import Footer from "./component/Footer";
 
 function App() {
   const router = createBrowserRouter([
@@ -24,24 +26,46 @@ function App() {
         <div>
           <NavBar />
           <SignIn />
+          <Footer />
         </div>
       ),
     },
     {
       path: "/signup",
-      element: <SignUp />
+      element:<div>
+        <NavBar />
+        <SignUp />
+        <Footer />
+      </div>
+
     },
     {
       path: "/youtube",
-      element: <YouTubeSearch />
+      element:<div>
+        <NavBar />
+        <YouTubeSearch />
+        <Footer />
+      </div> 
     },
     {
       path: "/lobby",
-      element: <Lobby />
+      element: (
+        <ProtectedRoute>
+          <NavBar />
+          <Lobby />
+          <Footer />
+        </ProtectedRoute>
+      ),
     },
     {
-      path: "/room",
-      element: <Room />
+      path: "/room/:roomId",
+      element: (
+        <ProtectedRoute>
+          <NavBar />
+          <Room />
+          <Footer />
+        </ProtectedRoute>
+      ),
     },
   ]);
 

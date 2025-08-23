@@ -1,32 +1,31 @@
-// /frontend/src/redux/roomSlice.js
-import { createSlice } from "@reduxjs/toolkit";
-
-const initialState = {
-  roomId: null,
-  isRoomActive: false,
-  users: [],
-  email: "", // email of the user
-};
+import { createSlice } from '@reduxjs/toolkit'
 
 const roomSlice = createSlice({
-  name: "room",
-  initialState,
+  name: 'room',
+  initialState: {
+    roomId: null,
+    users: [], // [{ socketId, email }]
+  },
   reducers: {
     setRoomId: (state, action) => {
-      state.roomId = action.payload;
+      state.roomId = action.payload
     },
     setUsers: (state, action) => {
-      state.users = action.payload;
+      state.users = action.payload
     },
-    setRoomActive: (state, action) => {
-      state.isRoomActive = action.payload;
+    addUser: (state, action) => {
+      const exists = state.users.some(u => u.socketId === action.payload.socketId)
+      if (!exists) state.users.push(action.payload)
     },
-    setEmail: (state, action) => {
-      state.email = action.payload;
+    removeUser: (state, action) => {
+      state.users = state.users.filter(u => u.socketId !== action.payload)
     },
-    clearRoom: () => initialState,
-  },
-});
+    resetRoom: (state) => {
+      state.roomId = null
+      state.users = []
+    }
+  }
+})
 
-export const { setRoomId, setUsers, setRoomActive, setEmail, clearRoom } = roomSlice.actions;
+export const { setRoomId, setUsers, addUser, removeUser, resetRoom } = roomSlice.actions
 export default roomSlice.reducer;
