@@ -28,7 +28,7 @@ const NavBar = () => {
           {/* Middle section */}
           <div className="hidden lg:flex lg:justify-center lg:space-x-10 xl:space-x-14">
             <a
-              href="#"
+              href="/home"
               title=""
               className="text-base font-medium text-gray-400 transition-all duration-200 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white hover:text-white"
             >

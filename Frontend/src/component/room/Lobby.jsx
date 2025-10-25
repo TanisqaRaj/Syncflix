@@ -9,6 +9,7 @@ const Lobby = () => {
   const [roomId, setRoomId] = useState("");
   const [joinRoomId, setJoinRoomId] = useState("");
   const [email, setEmail] = useState("");
+  const [email2, setEmail2] = useState("");
   const [createdRoomId, setCreatedRoomId] = useState("");
   const navigate = useNavigate();
 
@@ -53,15 +54,15 @@ const Lobby = () => {
     try {
       const res = await axios.post("http://localhost:8080/room/join", {
         roomId: joinRoomId,
-        email,
+        email: email2,
       });
 
       if (res.data.success) {
         // Emit socket event to join room
-        socket.emit("join-room", { roomId: joinRoomId, email });
+        socket.emit("join-room", { roomId: joinRoomId, email: email2 });
 
         // navigate(`/room/${joinRoomId}`, { state: { roomId: joinRoomId, email } });
-        navigate(`/room/${joinRoomId}`, { state: { email } });
+        navigate(`/room/${joinRoomId}`, { state: { email: email2 } });
       } else {
         alert(res.data.message);
       }
@@ -126,8 +127,8 @@ const Lobby = () => {
           <input
             type="email"
             placeholder="Enter Your Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={email2}
+            onChange={(e) => setEmail2(e.target.value)}
             className="w-full p-3 text-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button

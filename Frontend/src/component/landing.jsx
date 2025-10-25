@@ -5,6 +5,7 @@ import logo from "../assets/logo.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import main from "../assets/logo.png";
+import Footer from "./Footer";
 
 const Landing = () => {
   return (
@@ -362,11 +363,11 @@ const Landing = () => {
       </section>
 
       {/* Footer Section */}
-      <section className="bg-[#0D1224] text-white pt-16 pb-10 rounded-t-3xl">
+      {/* <section className="bg-[#0D1224] text-white pt-16 pb-10 rounded-t-3xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"> */}
             {/* Company */}
-            <div>
+            {/* <div>
               <h4 className="text-lg font-semibold mb-4">Company</h4>
               <ul className="space-y-3 text-sm text-gray-300">
                 <li>
@@ -390,10 +391,10 @@ const Landing = () => {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
 
             {/* Help */}
-            <div>
+            {/* <div>
               <h4 className="text-lg font-semibold mb-4">Help</h4>
               <ul className="space-y-3 text-sm text-gray-300">
                 <li>
@@ -417,10 +418,10 @@ const Landing = () => {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
 
             {/* Resources */}
-            <div>
+            {/* <div>
               <h4 className="text-lg font-semibold mb-4">Resources</h4>
               <ul className="space-y-3 text-sm text-gray-300">
                 <li>
@@ -444,10 +445,10 @@ const Landing = () => {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
 
             {/* App Store */}
-            <div>
+            {/* <div>
               <div className="space-y-4">
                 <a href="#" className="inline-block h-12">
                   <svg
@@ -459,10 +460,10 @@ const Landing = () => {
                   >
                     <path d="M36.009,5.074H13.991C9.025,5.074,5,9.099,5,14.064V36c0,4.965,4.025,8.991,8.991,8.991h22.019	C40.975,44.99,45,40.965,45,36V14.064C45,9.099,40.975,5.074,36.009,5.074z M16.171,36.755c-0.372,0.636-1.041,0.989-1.728,0.989	c-0.343,0-0.691-0.088-1.009-0.274c-0.953-0.559-1.273-1.784-0.714-2.736l0.291-0.497c0.515-0.162,1.057-0.25,1.614-0.234l0.005,0	c1.023,0.03,1.879,0.493,2.464,1.176L16.171,36.755z M27.413,32H12c-1.104,0-2-0.896-2-2s0.896-2,2-2h4.665l5.866-10.01	l-1.811-3.091c-0.559-0.953-0.239-2.178,0.714-2.737c0.953-0.558,2.178-0.239,2.737,0.714l0.678,1.157l0.678-1.157	c0.558-0.953,1.783-1.272,2.737-0.714c0.953,0.559,1.273,1.784,0.714,2.737L21.301,28h4.18c0.625,0.416,1.162,0.966,1.549,1.64	l0.003,0.004C27.473,30.409,27.57,31.237,27.413,32z M38,32h-2.623l1.602,2.733c0.559,0.952,0.239,2.178-0.714,2.736	c-0.318,0.187-0.666,0.274-1.009,0.274c-0.687,0-1.355-0.354-1.728-0.989l-6.151-10.497c-0.834-1.549-0.803-3.427,0.109-4.943	l0.826-1.373L33.033,28H38c1.104,0,2,0.896,2,2S39.104,32,38,32z" />
                   </svg>
-                </a>
+                </a> */}
 
                 {/* Google Play Store */}
-                <a href="#" className="inline-block h-12">
+                {/* <a href="#" className="inline-block h-12">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="auto"
@@ -539,7 +540,7 @@ const Landing = () => {
                   </svg>
                 </a>
                 {/* New Colorful 4-Tile SVG */}
-                <a
+                {/* <a
                   href="https://play.google.com/store/games?device=phone"
                   className="inline-block h-12 w-12"
                 >
@@ -572,13 +573,13 @@ const Landing = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </div>  */}
 
           {/* Divider */}
-          <div className="border-t border-gray-700 my-8"></div>
+          {/* <div className="border-t border-gray-700 my-8"></div> */}
 
           {/* Bottom */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+          {/* <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
             <p>© Copyright 2022, All Rights Reserved by ClarityUI</p>
             <div className="flex space-x-4">
               <a href="#" className="hover:text-white">
@@ -596,7 +597,8 @@ const Landing = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+      <Footer />
     </>
   );
 };

@@ -8,6 +8,7 @@ import Lobby from "./component/room/Lobby";
 import Room from "./component/room/Room";
 import ProtectedRoute from "./component/ProtectedRoute";
 import Footer from "./component/Footer";
+import Home from "./component/Home";
 
 function App() {
   const router = createBrowserRouter([
@@ -17,6 +18,19 @@ function App() {
         <div>
           <NavBar />
           <Landing />
+        </div>
+      ),
+    },
+    {
+      path: "/home",
+      element: (
+        <div>
+          <ProtectedRoute>
+            <NavBar />
+            <Home />
+            <Footer />
+          </ProtectedRoute>
+
         </div>
       ),
     },
@@ -32,7 +46,7 @@ function App() {
     },
     {
       path: "/signup",
-      element:<div>
+      element: <div>
         <NavBar />
         <SignUp />
         <Footer />
@@ -41,11 +55,11 @@ function App() {
     },
     {
       path: "/youtube",
-      element:<div>
+      element: <div>
         <NavBar />
         <YouTubeSearch />
         <Footer />
-      </div> 
+      </div>
     },
     {
       path: "/lobby",

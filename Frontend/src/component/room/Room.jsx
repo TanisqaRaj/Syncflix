@@ -238,7 +238,7 @@ export default function Room() {
     socket.emit("leave-room", { roomId });
 
     dispatch(resetRoom());
-    navigate("/", { replace: true });
+    navigate("/home", { replace: true });
   };
 
   // ----- UI -----
@@ -256,7 +256,7 @@ export default function Room() {
         style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}
       >
         {/* local video */}
-        <div className="relative rounded-xl overflow-hidden bg-black h-64">
+        <div className="relative rounded-xl overflow-hidden bg-black h-[75vh]">
           <video
             ref={localVideoRef}
             autoPlay
