@@ -401,6 +401,7 @@ export default function Room() {
     }
   };
 
+  //Leave room
   const leaveRoom = () => {
     peersRef.current.forEach((p) => {
       try {
@@ -466,23 +467,25 @@ export default function Room() {
   }
 
   return (
-    <div className="flex h-[90vh] bg-gray-900 text-white">
+    <div className="flex h-[90vh] bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white font-inter">
       {/* ---------- LEFT SIDE: VIDEO SECTION ---------- */}
       <div className="flex flex-col w-2/3 border-r border-gray-800">
         {/* HEADER */}
-        <div className="p-3 flex items-center justify-between bg-gray-800">
-          <div className="font-semibold">Room: {roomId}</div>
-          <div className="text-sm opacity-70">{email}</div>
+        <div className="p-4 flex items-center justify-between bg-gray-950 shadow-md">
+          <div className="font-semibold text-lg tracking-wide">
+            Room: <span className="text-blue-400">{roomId}</span>
+          </div>
+          <div className="text-sm opacity-70 italic">{email}</div>
         </div>
 
         {/* VIDEO GRID */}
         <div
-          className="grid gap-3 p-3 overflow-y-auto flex-1"
+          className="grid gap-4 p-4 overflow-y-auto flex-1"
           style={{
             gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
           }}
         >
-          <div className="relative rounded-xl overflow-hidden bg-black h-64">
+          <div className="relative rounded-2xl overflow-hidden bg-black shadow-lg h-64 border border-gray-800 hover:scale-[1.01] transition-transform duration-200">
             <video
               ref={localVideoRef}
               autoPlay
@@ -498,7 +501,7 @@ export default function Room() {
           {uniquePeers.map(({ socketId, peer }) => (
             <div
               key={socketId}
-              className="relative rounded-xl overflow-hidden bg-black h-64"
+              className="relative rounded-2xl overflow-hidden bg-black shadow-lg h-64 border border-gray-800 hover:scale-[1.01] transition-transform duration-200"
             >
               <RemoteVideo peer={peer} />
               <div className="absolute bottom-2 left-2 text-xs bg-black/60 px-2 py-1 rounded">
@@ -510,32 +513,32 @@ export default function Room() {
         </div>
 
         {/* CONTROL BUTTONS */}
-        <div className="p-4 bg-gray-800 flex items-center justify-center gap-4">
+        <div className="p-4 bg-gray-950 flex items-center justify-center gap-4 border-t border-gray-800">
           <button
             type="button"
             onClick={shareScreen}
-            className="px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-700"
+            className="px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 hover:scale-105 transition-all shadow-md"
           >
             {sharing ? "Sharing…" : "Share Screen"}
           </button>
           <button
             type="button"
             onClick={toggleMute}
-            className="px-4 py-2 rounded-full bg-yellow-600 hover:bg-yellow-700"
+            className="px-5 py-2.5 rounded-full bg-yellow-600 hover:bg-yellow-700 hover:scale-105 transition-all shadow-md"
           >
             {muted ? "Unmute" : "Mute"}
           </button>
           <button
             type="button"
             onClick={toggleVideo}
-            className="px-4 py-2 rounded-full bg-purple-600 hover:bg-purple-700"
+            className="px-5 py-2.5 rounded-full bg-purple-600 hover:bg-purple-700 hover:scale-105 transition-all shadow-md"
           >
             {videoOff ? "Video On" : "Video Off"}
           </button>
           <button
             type="button"
             onClick={leaveRoom}
-            className="px-4 py-2 rounded-full bg-red-600 hover:bg-red-700"
+            className="px-5 py-2.5 rounded-full bg-red-600 hover:bg-red-700 hover:scale-105 transition-all shadow-md"
           >
             Leave
           </button>
@@ -543,27 +546,27 @@ export default function Room() {
       </div>
 
       {/* ---------- RIGHT SIDE: CHAT SECTION ---------- */}
-      <div className="w-1/3 flex flex-col bg-zinc-100 text-black font-inter">
+      <div className="w-1/3 flex flex-col bg-gray-50 text-black">
         {showNamePopup ? (
           <div className="flex items-center justify-center flex-1">
-            <div className="bg-white rounded-xl shadow-lg max-w-md p-6">
-              <h1 className="text-xl font-semibold text-black">
+            <div className="bg-white rounded-2xl shadow-2xl max-w-md p-8 text-center border border-gray-200">
+              <h1 className="text-2xl font-bold text-gray-900">
                 Enter your name
               </h1>
-              <p className="text-sm text-gray-500 mt-1">
-                Enter your name to start chatting. 
+              <p className="text-sm text-gray-500 mt-2">
+                Enter your name to start chatting.
               </p>
-              <form onSubmit={handleNameSubmit} className="mt-4">
+              <form onSubmit={handleNameSubmit} className="mt-5 space-y-4">
                 <input
                   autoFocus
                   value={inputName}
                   onChange={(e) => setInputName(e.target.value)}
-                  className="w-full border text-black border-gray-200 rounded-md px-3 py-2 outline-green-500 placeholder-gray-400"
-                  placeholder="Your name ....."
+                  className="w-full border text-black border-gray-300 rounded-lg px-4 py-2.5 outline-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-gray-800 transition"
+                  placeholder="Your name..."
                 />
                 <button
                   type="submit"
-                  className="block ml-auto mt-3 px-4 py-1.5 rounded-full bg-green-500 text-white font-medium cursor-pointer"
+                  className="block w-full py-2 rounded-full bg-gradient-to-br from-gray-900 via-gray-800 to-black hover:bg-gray-700 text-white font-medium shadow-md transition"
                 >
                   Continue
                 </button>
@@ -571,47 +574,51 @@ export default function Room() {
             </div>
           </div>
         ) : (
-          <div className="flex flex-col h-full">
+          <div className="flex flex-col h-full rounded-sm">
             {/* CHAT HEADER */}
-            <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-300 bg-white shadow-sm">
-              <div className="h-10 w-10 rounded-full bg-[#075E54] flex items-center justify-center text-white font-semibold">
-                R
+            <div className="flex items-center gap-3 px-5 py-4 border-b border-gray-200 bg-white shadow-md">
+              <div className="h-10 w-10 rounded-full bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center text-white font-semibold">
+                💬
               </div>
               <div className="flex-1">
-                <div className="text-sm font-medium text-[#303030]">
-                  Realtime group chat
+                <div className="text-base font-semibold text-gray-800">
+                  Realtime Chat
                 </div>
-              </div>
-              <div className="text-sm text-gray-500">
-                Signed in as{" "}
-                <span className="font-medium text-[#303030] capitalize">
-                  {userName}
-                </span>
+                <div className="text-xs text-gray-500">
+                  Connected as{" "}
+                  <span className="font-medium capitalize text-gray-700">
+                    {userName}
+                  </span>
+                </div>
               </div>
             </div>
 
-            {/* CHAT MESSAGE LIST */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-zinc-100">
+            {/* CHAT MESSAGES */}
+            <div className="flex-1 overflow-y-auto p-4 bg-gradient-to-b from-gray-100 to-gray-200 space-y-3 scroll-smooth">
               {messages.map((m) => {
                 const mine = m.sender === (userName || email);
                 return (
                   <div
                     key={m.id}
-                    className={`flex ${mine ? "justify-end" : "justify-start"}`}
+                    className={`flex ${
+                      mine ? "justify-end" : "justify-start"
+                    } animate-fadeIn`}
                   >
                     <div
-                      className={`max-w-[78%] p-3 my-2 rounded-[18px] text-sm leading-5 shadow-sm ${
+                      className={`max-w-[75%] p-3 rounded-2xl text-sm leading-5 shadow ${
                         mine
-                          ? "bg-[#DCF8C6] text-[#303030] rounded-br-2xl"
-                          : "bg-white text-[#303030] rounded-bl-2xl"
-                      }`}
+                          ? "bg-gray-700 text-white rounded-br-sm"
+                          : "bg-white text-gray-800 rounded-bl-sm"
+                      } transition-all hover:scale-[1.02]`}
                     >
                       <div className="break-words whitespace-pre-wrap">
                         {m.text}
                       </div>
-                      <div className="flex justify-between items-center mt-1 gap-16">
-                        <div className="text-[11px] font-bold">{m.sender}</div>
-                        <div className="text-[11px] text-gray-500 text-right">
+                      <div className="flex justify-between items-center mt-1 gap-10">
+                        <div className="text-[11px] font-medium opacity-80">
+                          {m.sender}
+                        </div>
+                        <div className="text-[11px] opacity-70">
                           {formatTime(m.ts)}
                         </div>
                       </div>
@@ -622,20 +629,20 @@ export default function Room() {
             </div>
 
             {/* CHAT INPUT */}
-            <div className="px-4 py-3 border-t border-gray-300 bg-white">
-              <div className="flex items-center justify-between gap-4 border border-gray-200 rounded-full">
+            <div className="px-4 py-3 border-t border-gray-300 bg-white shadow-inner">
+              <div className="flex items-center justify-between gap-3 border border-gray-300 rounded-full px-3 py-1.5 focus-within:ring-2 focus-within:ring-blue-400 transition">
                 <textarea
                   rows={1}
                   value={text}
                   onChange={(e) => setText(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="Type a message..."
-                  className="w-full resize-none px-4 py-4 text-sm outline-none text-black"
+                  className="w-full resize-none px-3 py-3 text-sm text-gray-800 bg-transparent outline-none"
                 />
                 <button
                   type="button"
                   onClick={sendMessage}
-                  className="bg-green-500 text-white px-4 py-2 mr-2 rounded-full text-sm font-medium cursor-pointer"
+                  className="bg-gradient-to-br from-gray-900 via-gray-800 to-black hover:bg-gray-700 px-5 py-2 rounded-full text-sm font-medium text-white shadow-md transition-all"
                 >
                   Send
                 </button>
