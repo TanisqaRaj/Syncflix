@@ -14,7 +14,7 @@ const SignIn = () => {
 
   const loginWithFirebase = async (user) => {
     const idToken = await user.getIdToken();
-    const res = await axios.post("http://localhost:8080/auth/login", {
+    const res = await axios.post("https://syncflix-79x2.onrender.com/auth/login", {
       idToken,
     });
     dispatch(

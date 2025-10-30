@@ -16,7 +16,7 @@ const Lobby = () => {
   // Create Room
   const createRoom = async () => {
     try {
-      const res = await axios.post("http://localhost:8080/room/create", {
+      const res = await axios.post("https://syncflix-79x2.onrender.com/room/create", {
         createdBy: email,
       });
       // If backend returned success, join the created room and navigate
@@ -35,33 +35,9 @@ const Lobby = () => {
     }
   };
 
-  // Create Room
-  // const createRoom = async () => {
-  //   try {
-  //     const res = await axios.post("http://localhost:8080/room/create", {
-  //       createdBy: email
-  //     });
-
-  //     if (res.data.success) {
-  //       const newRoomId = res.data.roomId;
-  //       setCreatedRoomId(newRoomId);
-
-  //       // Creator also joins the room
-  //       socket.emit("join-room", { roomId: newRoomId, email });
-
-  //       // Navigate to room
-  //       // navigate(`/room/${newRoomId}`, { state: { email } });
-  //     } else {
-  //       alert(res.data.message);
-  //     }
-  //   } catch (err) {
-  //     console.error("Error creating room:", err);
-  //   }
-  // };
-
   const joinRoom = async () => {
     try {
-      const res = await axios.post("http://localhost:8080/room/join", {
+      const res = await axios.post("https://syncflix-79x2.onrender.com/room/join", {
         roomId: joinRoomId,
         email: email2,
       });

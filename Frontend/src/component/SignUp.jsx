@@ -27,7 +27,7 @@ const SignUp = () => {
       // Update display name
       await updateProfile(userCred.user, { displayName: username });
 
-      await axios.post("http://localhost:8080/auth/signup/user", {
+      await axios.post("https://syncflix-79x2.onrender.com/auth/signup/user", {
         email,
         password,
         username,
