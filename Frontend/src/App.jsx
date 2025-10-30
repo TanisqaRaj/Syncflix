@@ -30,7 +30,6 @@ function App() {
             <Home />
             <Footer />
           </ProtectedRoute>
-
         </div>
       ),
     },
@@ -46,20 +45,23 @@ function App() {
     },
     {
       path: "/signup",
-      element: <div>
-        <NavBar />
-        <SignUp />
-        <Footer />
-      </div>
-
+      element: (
+        <div>
+          <NavBar />
+          <SignUp />
+          <Footer />
+        </div>
+      ),
     },
     {
       path: "/youtube",
-      element: <div>
-        <NavBar />
-        <YouTubeSearch />
-        <Footer />
-      </div>
+      element: (
+        <div>
+          <NavBar />
+          <YouTubeSearch />
+          <Footer />
+        </div>
+      ),
     },
     {
       path: "/lobby",

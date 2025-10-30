@@ -6,100 +6,79 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import main from "../assets/logo.png";
 import Footer from "./Footer";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const Landing = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <section>
-        {/* IMG SECTION ON HERO */}
-        <div className=" py-12 bg-gray-900 sm:py-16 lg:py-20 xl:pt-32 xl:pb-44">
-          <div className="flex flex-row ">
-            <div>
-              <img
-                className=" mr-3"
-                src="https://res.cloudinary.com/dzfftyy42/image/upload/v1755160678/logo_vm9vxe.png"
-                alt=""
-              />
-            </div>
-
-            <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-              <div className="max-w-xl mx-auto text-center lg:max-w-md xl:max-w-lg lg:text-left lg:mx-0">
-                <h1 className="text-3xl font-bold text-white sm:text-4xl xl:text-5xl xl:leading-tight">
-                  A platform for students
-                </h1>
-                <p className="mt-8 text-base font-normal leading-7 text-gray-400 lg:max-w-md xl:pr-0 lg:pr-16">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                  nunc nisl eu consectetur. Mi massa elementum odio eu viverra
-                  amet.
-                </p>
-
-                <div className="flex items-center justify-center mt-8 space-x-5 xl:mt-16 lg:justify-start">
-                  <a
-                    href="/signup"
-                    title=""
-                    className="
-                            inline-flex
-                            items-center
-                            justify-center
-                            px-3
-                            py-3
-                            text-base
-                            font-bold
-                            leading-7
-                            text-gray-900
-                            transition-all
-                            duration-200
-                            bg-white
-                            border border-transparent
-                            rounded-md
-                            sm:px-6
-                            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white
-                            hover:bg-gray-200
-                        "
-                    role="button"
-                  >
-                    Signup
-                  </a>
-
-                  <a
-                    href="/signin"
-                    title=""
-                    className="
-                            inline-flex
-                            items-center
-                            justify-center
-                            px-2
-                            py-3
-                            text-base
-                            font-bold
-                            leading-7
-                            text-white
-                            transition-all
-                            duration-200
-                            bg-transparent
-                            border border-transparent
-                            rounded-md
-                            sm:px-4
-                            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-gray-700
-                            hover:bg-gray-700
-                        "
-                    role="button"
-                  >
-                    Signin
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8 lg:hidden">
+        {/* HERO SECTION */}
+        <div className="relative flex flex-col lg:flex-row items-center justify-between bg-gray-900 sm:py-18 lg:py-20 xl:pt-32 xl:pb-48 px-8 overflow-hidden">
+          {/* Left Side Image */}
+          <div className="flex-1 flex justify-center lg:justify-start mb-10 lg:mb-0">
             <img
-              className="object-cover w-full h-full"
-              src="https://cdn.rareblocks.xyz/collection/clarity-ecommerce/images/hero/1/bg.png"
-              alt=""
+              className="w-80 sm:w-96 md:w-[28rem] lg:w-[32rem] xl:w-[38rem] object-contain animate-float"
+              src="https://res.cloudinary.com/dzfftyy42/image/upload/v1755160678/logo_vm9vxe.png"
+              alt="Syncflix logo"
             />
           </div>
+
+          {/* Right Side Content */}
+          <div className="flex-1 text-center lg:text-left max-w-lg relative z-10">
+            <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-white xl:leading-tight">
+              Welcome to <span className="text-blue-400">Syncflix</span>
+            </h1>
+            <p className="mt-6 text-base text-gray-400 leading-7">
+              Watch videos, movies, or your favorite lectures{" "}
+              <span className="text-blue-300 font-medium">
+                together in real-time
+              </span>
+              . Syncflix lets multiple users join a room, share screens, control
+              video playback, and connect with audio or video — just like{" "}
+              <span className="font-semibold text-gray-200">
+                Google Meet for Entertainment
+              </span>
+              .
+            </p>
+
+            {/* Buttons */}
+            <div className="flex items-center justify-center lg:justify-start mt-10 space-x-5">
+              <a
+                href="/signup"
+                className="inline-flex items-center justify-center px-5 py-3 text-base font-bold leading-7 text-gray-900 bg-white rounded-md hover:bg-gray-200 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white"
+              >
+                Signup
+              </a>
+
+              <a
+                href="/signin"
+                className="inline-flex items-center justify-center px-5 py-3 text-base font-bold leading-7 text-white bg-transparent border border-gray-600 rounded-md hover:bg-gray-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-gray-700"
+              >
+                Signin
+              </a>
+            </div>
+          </div>
+
+          {/* Background Graphic */}
+          <div className="absolute inset-0 opacity-10 bg-[url('https://cdn.rareblocks.xyz/collection/clarity-ecommerce/images/hero/1/bg.png')] bg-cover bg-center -z-10"></div>
         </div>
+
+        {/* Floating animation style */}
+        <style>
+          {`
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+      }
+      .animate-float {
+        animation: float 4s ease-in-out infinite;
+      }
+    `}
+        </style>
       </section>
 
       {/* Testimonial Section */}
@@ -108,7 +87,7 @@ const Landing = () => {
           <div className="flex flex-col items-center">
             <div className="text-center">
               <p className="text-lg font-medium text-gray-600 font-pj">
-                2,157 people have said how good Rareblocks
+                2,157 people have said how good Syncflix
               </p>
               <h2 className="mt-4 text-3xl font-bold text-gray-900 sm:text-4xl xl:text-5xl font-pj">
                 Our happy clients say about us

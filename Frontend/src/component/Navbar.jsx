@@ -42,7 +42,7 @@ const NavBar = () => {
               className="text-base font-medium text-gray-400 transition-all duration-200 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white hover:text-white"
             >
               {" "}
-              Features{" "}
+              Youtube{" "}
             </a>
 
             <a
