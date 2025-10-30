@@ -9,17 +9,17 @@ const Home = () => {
     {
       title: "Ek Deewane ki Deewaniyat",
       description: "A soulful tale of love, longing and the little moments that make us feel alive.",
-      src: "/src/assets/herovideo.mp4",
+      src: "/public/herovideo.mp4",
     },
     {
       title: "The Last Melody",
       description: "A musician’s journey to find his true rhythm amidst chaos.",
-      src: "/src/assets/herovideo2.mp4",
+      src: "/public/herovideo2.mp4",
     },
     {
       title: "Beyond the Horizon",
       description: "An adventure that challenges the boundaries of love and destiny.",
-      src: "/src/assets/herovideo3.mp4",
+      src: "/public/herovideo3.mp4",
     },
   ];
 
