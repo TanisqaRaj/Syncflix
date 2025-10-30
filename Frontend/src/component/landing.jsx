@@ -35,7 +35,7 @@ const Landing = () => {
 
                 <div className="flex items-center justify-center mt-8 space-x-5 xl:mt-16 lg:justify-start">
                   <a
-                    href="#"
+                    href="/signup"
                     title=""
                     className="
                             inline-flex
@@ -62,7 +62,7 @@ const Landing = () => {
                   </a>
 
                   <a
-                    href="#"
+                    href="/signin"
                     title=""
                     className="
                             inline-flex

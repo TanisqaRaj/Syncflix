@@ -19,8 +19,17 @@ const Lobby = () => {
       const res = await axios.post("http://localhost:8080/room/create", {
         createdBy: email,
       });
-      console.log("Room created:", res.data.roomId);
-      alert(res.data.message);
+      // If backend returned success, join the created room and navigate
+      if (res.data.success) {
+        const newRoomId = res.data.roomId;
+        setCreatedRoomId(newRoomId);
+
+        // Creator should join the room via socket and navigate to the room page
+        socket.emit("join-room", { roomId: newRoomId, email });
+        navigate(`/room/${newRoomId}`, { state: { email } });
+      } else {
+        alert(res.data.message);
+      }
     } catch (err) {
       console.error("Error creating room:", err);
     }
@@ -72,13 +81,16 @@ const Lobby = () => {
   };
 
   useEffect(() => {
-    socket.on("user-joined", ({ email, id }) => {
-      console.log(`🔔 ${email} joined the room`);
-      alert(`${email} joined the room`);
-    });
+    const handleUserJoined = (payload) => {
+      const joinedEmail = payload?.email || payload?.createdBy || "Someone";
+      console.log(`🔔 ${joinedEmail} joined the room`);
+      alert(`${joinedEmail} joined the room`);
+    };
+
+    socket.on("user-joined", handleUserJoined);
 
     return () => {
-      socket.off("user-joined");
+      socket.off("user-joined", handleUserJoined);
     };
   }, []);
 
@@ -144,3 +156,4 @@ const Lobby = () => {
 };
 
 export default Lobby;
+
