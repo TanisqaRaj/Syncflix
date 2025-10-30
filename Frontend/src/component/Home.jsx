@@ -9,7 +9,7 @@ const Home = () => {
     {
       title: "Ek Deewane ki Deewaniyat",
       description: "A soulful tale of love, longing and the little moments that make us feel alive.",
-      src: "/public/herovideo.mp4",
+      src: "https://res.cloudinary.com/dzfftyy42/video/upload/v1761805396/herovideo_i4d3qe.mp4",
     },
     {
       title: "The Last Melody",
