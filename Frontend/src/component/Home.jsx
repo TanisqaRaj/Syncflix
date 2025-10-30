@@ -14,7 +14,7 @@ const Home = () => {
     {
       title: "The Last Melody",
       description: "A musician’s journey to find his true rhythm amidst chaos.",
-      src: "/public/herovideo2.mp4",
+      src: "https://res.cloudinary.com/dzfftyy42/video/upload/v1761804456/herovideo2_gghgk9.mp4",
     },
     {
       title: "Beyond the Horizon",
