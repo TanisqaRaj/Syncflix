@@ -24,7 +24,7 @@ const Home = () => {
   ];
 
   const trendingMovies = [
-    { title: "Heartbeat", img: "/src/assets/movie1.jpg" },
+    { title: "Half CA", img: "https://static.toiimg.com/photo/110452330/110452330.jpg" },
     { title: "Soulmate", img: "/src/assets/movie2.jpg" },
     { title: "The Painter", img: "/src/assets/movie3.jpg" },
     { title: "Chasing Dreams", img: "/src/assets/movie4.jpg" },
